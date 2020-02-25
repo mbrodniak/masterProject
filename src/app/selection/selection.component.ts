@@ -15,22 +15,55 @@ export class SelectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  getTenPerTenTable() {
-    // let endTime = 0;
-    this.movies = [];
-    const startTime = new Date().getMilliseconds();
-    this.dataService.getData().subscribe(data =>
-      this.movies = data,
-    error1 => {},
-      () => {
-        const endTime = new Date().getMilliseconds();
-        console.log(endTime - startTime);
-      });
+  getThirty() {
+    this.dataService.get30Data().subscribe(data => this.movies = data);
   }
 
-  getTwentyPerTenTable() {
-
+  getTwoHundred() {
+    this.dataService.get200Data().subscribe(data => this.movies = data);
   }
+
+  getFiveHundred() {
+    this.dataService.get500Data().subscribe(data => this.movies = data);
+  }
+
+  getThousand() {
+    this.dataService.get1000Data().subscribe(data => this.movies = data);
+  }
+
+  postMovie() {
+    const movie = new Movie();
+    movie.imdbId = 'tt99999';
+    movie.ratings = 10000;
+    movie.votesNumber = 10000;
+    movie.titleType = 'Sample';
+    movie.primaryTitle = 'Sample Movie';
+    movie.originalTitle = 'Sample Movie';
+    movie.startYear = 2020;
+    movie.runtimeMinutes = 1;
+    movie.genere1 = 'sample';
+    movie.genere2 = 'sample';
+    movie.adult = false;
+
+    console.log(movie);
+
+    this.dataService.addData(movie).subscribe(data => console.log(data));
+  }
+
+  // updateMovie() {
+  //   const movie = new Movie();
+  //   movie.imdbId = 'tt0010323';
+  //   movie.ratings = 81;
+  //   movie.votesNumber = 10005;
+  //   movie.titleType = 'Sample';
+  //   movie.primaryTitle = 'Sample Movie';
+  //   movie.originalTitle = 'Sample Movie';
+  //   movie.startYear = 2020;
+  //   movie.runtimeMinutes = 1;
+  //   movie.genere1 = 'sample';
+  //   movie.genere2 = 'sample';
+  //   movie.adult = false;
+  // }
 
   showArray() {
     this.movies.forEach(movie => console.log(movie));

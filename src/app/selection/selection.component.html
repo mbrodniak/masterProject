@@ -1,11 +1,17 @@
 <div style="text-align: center">
-  <button type="button" class="btn btn-outline-success" (click)="getTenPerTenTable()">10x10</button>
-  <button type="button" class="btn btn-outline-success" (click)="showArray()">20x10</button>
+  <button type="button" class="btn btn-outline-success" (click)="getThirty()">30x10</button>
+  <button type="button" class="btn btn-outline-success" (click)="getTwoHundred()">200x10</button>
+  <button type="button" class="btn btn-outline-success" (click)="getFiveHundred()">500x10</button>
+  <button type="button" class="btn btn-outline-success" (click)="getThousand()">1000x10</button>
+  <button type="button" class="btn btn-outline-success" (click)="postMovie()">Post</button>
+
+<!--  <button type="button" class="btn btn-outline-success" (click)="showArray()">20x10</button>-->
 </div>
 <div style="text-align: center">
   <table class="table table-dark">
     <thead>
       <tr>
+        <th>Nr</th>
         <th>ID</th>
         <th>Rating</th>
         <th>Votes</th>
@@ -20,7 +26,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let movie of movies">
+      <tr *ngFor="let movie of movies; index as i">
+        <td>{{i+1}}</td>
         <td>{{movie.imdbId}}</td>
         <td>{{movie.ratings}}
         <td>{{movie.votesNumber}}</td>
