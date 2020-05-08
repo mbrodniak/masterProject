@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "imdbId": "tt99999",
+      "ratings": 10000,
+      "votesNumber": 10000,
+      "titleType": "Sample",
+      "primaryTitle": "Sample Movie",
+      "originalTitle": "Sample Movie",
+      "startYear": 2020,
+      "runtimeMinutes": 1,
+      "genere1": "sample",
+      "genere2": "sample",
+      "adult": false,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

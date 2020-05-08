@@ -1,15 +1,58 @@
+
+
 <div style="text-align: center">
-  <button type="button" class="btn btn-outline-success" (click)="getThirty()">30x10</button>
+  <hr>
+  <button type="button" class="btn btn-outline-success" (click)="getThirtyMovies()">30x10</button>
   <button type="button" class="btn btn-outline-success" (click)="getTwoHundred()">200x10</button>
   <button type="button" class="btn btn-outline-success" (click)="getFiveHundred()">500x10</button>
-  <button type="button" class="btn btn-outline-success" (click)="getThousand()">1000x10</button>
-  <button type="button" class="btn btn-outline-success" (click)="postMovie()">Post</button>
-
-<!--  <button type="button" class="btn btn-outline-success" (click)="showArray()">20x10</button>-->
-</div>
-<div style="text-align: center">
-  <table class="table table-dark">
-    <thead>
+  <button type="button" class="btn btn-outline-success" (click)="getThousandMovies()">1000x10</button>
+  <button type="button" class="btn btn-outline-warning" (click)="changeDateView()">Change date</button>
+  <button type="button" class="btn btn-outline-danger"  (click)="addColumn()">Add column to table</button>
+  <!--<button type="button" class="btn btn-outline-success" (click)="getObservable()">Show Table</button>-->
+  <button type="button" class="btn btn-outline-success" (click)="goToSelectedPage()">Selected page</button>
+  <!--<button type="button" class="btn btn-outline-success" (click)="checkJS()">Check JS</button>-->
+  <hr>
+    <p>Movies in batch: {{movies?.length || zero}}</p>
+  <hr>
+  <div>
+    <div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <div>
+          <label for="imdbId">ImdbId</label>
+          <input id="imdbId" type="text" formControlName="imdbId">
+        </div>
+        <div>
+          <label for="titleType">Type</label>
+          <input id="titleType" type="text" formControlName="titleType">
+        </div>
+        <div>
+          <label for="primaryTitle">Type</label>
+          <input id="primaryTitle" type="text" formControlName="primaryTitle">
+        </div>
+        <div>
+          <label for="originalTitle">Type</label>
+          <input id="originalTitle" type="text" formControlName="originalTitle">
+        </div>
+        <div>
+          <label for="startYear">Type</label>
+          <input id="startYear" type="number" formControlName="startYear">
+        </div>
+        <div>
+          <label for="runtimeMinutes">Type</label>
+          <input id="runtimeMinutes" type="number" formControlName="runtimeMinutes">
+        </div>
+        <div>
+          <label for="genere1">Type</label>
+          <input id="genere1" type="text" formControlName="genere1">
+        </div>
+        <div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <p>Actual state: {{form?.imdbId}}, {{form?.title}}</p>
+    <table class="table table-dark">
+      <thead>
       <tr>
         <th>Nr</th>
         <th>ID</th>
@@ -24,8 +67,8 @@
         <th>Genere 2</th>
         <th>Adult</th>
       </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody id="table">
       <tr *ngFor="let movie of movies; index as i">
         <td>{{i+1}}</td>
         <td>{{movie.imdbId}}</td>
@@ -34,12 +77,15 @@
         <td>{{movie.titleType}}</td>
         <td>{{movie.primaryTitle}}</td>
         <td>{{movie.originalTitle}}</td>
-        <td>{{movie.startYear}}</td>
+        <td id="date">{{movie.startYear}}</td>
         <td>{{movie.runtimeMinutes}}</td>
         <td>{{movie.genere1}}</td>
         <td>{{movie.genere2}}</td>
         <td>{{movie.adult}}</td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
+
+<!--<app-selected [movieArray]="movies1000"></app-selected>-->
 </div>

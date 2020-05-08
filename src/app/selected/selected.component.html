@@ -1,0 +1,42 @@
+<div style="text-align: center">
+  <button type="button" class="btn btn-outline-success" (click)="getArraySize()">Size</button>
+</div>
+
+<p>Test</p>
+
+<div>
+<table class="table table-dark">
+  <thead>
+  <tr>
+    <th>Nr</th>
+    <th>ID</th>
+    <th>Rating</th>
+    <th>Votes</th>
+    <th>Type</th>
+    <th>Primary Title</th>
+    <th>Original Title</th>
+    <th>Start Year</th>
+    <th>Minutes</th>
+    <th>Genere 1</th>
+    <th>Genere 2</th>
+    <th>Adult</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let movie of movies$; index as i">
+    <td>{{i+1}}</td>
+    <td>{{movie.imdbId}}</td>
+    <td>{{movie.ratings}}
+    <td>{{movie.votesNumber}}</td>
+    <td>{{movie.titleType}}</td>
+    <td>{{movie.primaryTitle}}</td>
+    <td>{{movie.originalTitle}}</td>
+    <td>{{movie.startYear}}</td>
+    <td>{{movie.runtimeMinutes}}</td>
+    <td>{{movie.genere1}}</td>
+    <td>{{movie.genere2}}</td>
+    <td>{{movie.adult}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
